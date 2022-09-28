@@ -1,9 +1,7 @@
 module.exports = {
     index: async(req, res) => {
         try{
-            res.render('index', {
-                title: 'Express js'
-            })
+            res.render('admin/category/view_category')
         }catch (err){
             console.log(err)
         }
