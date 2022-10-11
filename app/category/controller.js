@@ -15,7 +15,7 @@ module.exports = {
         }catch (err){
             req.flash('alertMessage', `${err.message}`)
             req.flash('alertStatus', 'danger')
-            req.redirect('/category')
+            res.redirect('/category')
         }
     },
     viewCreate : async(req, res) => { 
@@ -24,7 +24,7 @@ module.exports = {
         }catch (err){
             req.flash('alertMessage', `${err.message}`)
             req.flash('alertStatus', 'danger')
-            req.redirect('/category')
+            res.redirect('/category')
         }
     },
     actionCreate : async(req, res)=>{
@@ -39,7 +39,7 @@ module.exports = {
         }catch (err){
             req.flash('alertMessage', `${err.message}`)
             req.flash('alertStatus', 'danger')
-            req.redirect('/category')
+            res.redirect('/category')
         }
     },
 
@@ -54,7 +54,7 @@ module.exports = {
         }catch(err){
             req.flash('alertMessage', `${err.message}`)
             req.flash('alertStatus', 'danger')
-            req.redirect('/category')
+            res.redirect('/category')
         }
     },
     actionEdit : async(req, res)=>{
@@ -71,7 +71,7 @@ module.exports = {
         }catch(err){
             req.flash('alertMessage', `${err.message}`)
             req.flash('alertStatus', 'danger')
-            req.redirect('/category')
+            res.redirect('/category')
         }
     },
 
@@ -88,7 +88,7 @@ module.exports = {
         }catch (err){
             req.flash('alertMessage', `${err.message}`)
             req.flash('alertStatus', 'danger')
-            req.redirect('/category')
+            res.redirect('/category')
         }
      }
 }
