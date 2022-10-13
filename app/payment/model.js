@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-let bankSchema = mongoose.Schema({
+let paymentSchema = mongoose.Schema({
     type : {
         type : String,
         require: [true, 'Tipe pembayaran harus diisi']
@@ -15,6 +15,6 @@ let bankSchema = mongoose.Schema({
         ref : 'Bank'
     }]
 
-})
+}, { timestamps: true })
 
-module.exports = mongoose.model('Payment', bankSchema)
+module.exports = mongoose.model('Payment', paymentSchema)
