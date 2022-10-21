@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
+const HASH_ROUND = 10
+
 let PlayerSchema = mongoose.Schema({
     email : {
         type : String,
@@ -45,5 +48,19 @@ let PlayerSchema = mongoose.Schema({
         ref : 'Player'
     }
 }, { timestamps: true })
+
+PlayerSchema.path('email').validate(async function (value){
+    try {
+        const count = await this.model('Player').countDocouments({email : value})
+        return !count;
+    } catch (err) {
+        throw err
+    }
+}, attr => `${attr.value} sudah terdaftar`)
+
+PlayerSchema.pre('save', function(next){
+    this.password = bcrypt.hashSync(this.password, HASH_ROUND)
+    next()
+})
 
 module.exports = mongoose.model('Player', PlayerSchema)
