@@ -14,7 +14,7 @@ module.exports = {
         }
     },
 
-    isLoginPlayer : async(res, res, next) => {
+    isLoginPlayer : async(req, res, next) => {
         try {
             const token = req.headers.authorization ? req.headers.authorization.replace('Bearer ', '') : null;
             const data = jwt.verify(token, config.jwtKey)
