@@ -26,7 +26,7 @@ module.exports = {
             req.token = token
             next()
         } catch (err) {
-            res,status(401).json({
+            res.status(401).json({
                 error: 'Not authorized to access this resource'
             })
         }
